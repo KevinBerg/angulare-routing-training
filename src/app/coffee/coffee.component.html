@@ -1,3 +1,4 @@
 <p *ngFor="let coffee of coffees">
-  {{ coffee.name }}
+  <button routerLink="edit/{{ coffee.name }}">{{ coffee.name }}</button>
 </p>
+<router-outlet></router-outlet>

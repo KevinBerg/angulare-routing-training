@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Coffee } from './coffee.model';
+import { CoffeeService } from '../coffee.service';
 
 @Component({
   selector: 'app-coffee',
@@ -8,14 +9,12 @@ import { Coffee } from './coffee.model';
 })
 export class CoffeeComponent implements OnInit {
 
-  coffees: Coffee[] = [
-    { name: 'Espresso' },
-    { name: 'Latte macchiato'}
-  ];
+  coffees: Coffee[];
 
-  constructor() { }
+  constructor(private CoffeeService: CoffeeService) { }
 
   ngOnInit() {
+    this.coffees = this.CoffeeService.getCoffees();
   }
 
 }
